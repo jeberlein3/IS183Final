@@ -18,15 +18,15 @@ export class BeverageComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    const resp = await this.bookService.getBookById(this.activatedRoute.snapshot.params['id']);
-    this.book = resp || [];
+    const resp = await this.beverageService.getBeverageById(this.activatedRoute.snapshot.params['id']);
+    this.beverage = resp || [];
   }
 
-  async updateBook(book: any) {
-    const bookID = book.id;
-    const resp = await this.bookService.updateBook(bookID, book);
+  async updateBeverage(beverage: any) {
+    const beverageID = beverage.id;
+    const resp = await this.beverageService.updateBeverage(beverageID, beverage);
     if (resp) {
-      this.router.navigate(['books']);
+      this.router.navigate(['beverages']);
     }
   }
 
